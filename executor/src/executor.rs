@@ -2,8 +2,8 @@ use super::state::State;
 use crate::{Pose, assembler::Assembler};
 
 pub struct Executor {
-    pose: Pose,
-    state: Box<dyn Assembler>,
+    pub pose: Pose,
+    pub state: Box<dyn Assembler>,
 }
 
 impl Executor {

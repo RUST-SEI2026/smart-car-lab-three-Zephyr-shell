@@ -1,20 +1,20 @@
 
-use crate::Pose;
-
-pub struct SportsCarExecutor{
-    pose: Pose,
-}
-
+use crate::{Executor, Pose};
+use super::sports_car_state::SportsCarState;
+pub struct SportsCarExecutor;
 impl SportsCarExecutor{
-    pub fn with_pose(pose: Pose) -> Self{
-        todo!();
+    pub fn with_pose(pose: Pose) -> Executor{
+        Executor{
+            pose,
+            state:Box::new(SportsCarState::default()),
+        }
     }
 
-    pub fn executor(&mut self, cmds:&str){
-        todo!();
-    }
+    // pub fn executor(&mut self, cmds:&str){
+    //     todo!();
+    // }
 
-    pub fn query(&self) -> Pose{
-        self.pose
-    }
+    // pub fn query(&self) -> Pose{
+    //     self.pose
+    // }
 }
