@@ -1,6 +1,5 @@
-
+pub(crate) use crate::assembler::SportsCarState;
 use crate::{Executor, Pose};
-use super::super::sports_car_state::SportsCarState;
 pub struct SportsCarExecutor;
 impl SportsCarExecutor{
     pub fn with_pose(pose: Pose) -> Executor{

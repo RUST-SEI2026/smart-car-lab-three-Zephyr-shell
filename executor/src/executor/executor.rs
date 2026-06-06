@@ -1,4 +1,4 @@
-use super::super::state::State;
+pub(crate) use crate::assembler::State;
 use crate::{Pose, assembler::Assembler};
 
 pub struct Executor {
