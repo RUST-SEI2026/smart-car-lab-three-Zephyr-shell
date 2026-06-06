@@ -1,16 +1,16 @@
 use super::state::State;
-use crate::Pose;
+use crate::{Pose, assembler::Assembler};
 
 pub struct Executor {
     pose: Pose,
-    state: State,
+    state: Box<dyn Assembler>,
 }
 
 impl Executor {
     pub fn with_pose(pose: Pose) -> Self {
         Executor {
             pose,
-            state: State::default(),
+            state: Box::new(State::default()),
         }
     }
 
