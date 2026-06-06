@@ -19,7 +19,13 @@ impl Assembler for SportsCarState{
         actions
     }
     fn turn_left_assemble(&self) -> Vec<Action> {
-        todo!();
+        let mut actions = Vec::new();
+        if self.is_fast{
+            actions.push(Action::Forward(if self.is_reverse{-1} else{1}));
+        }
+        actions.push(if self.is_reverse{Action::TurnRight} else{Action::TurnLeft});
+        actions.push(Action::Forward(if self.is_reverse{-1} else{1}));
+        actions
     }
     fn turn_right_assemble(&self) -> Vec<Action> {
         todo!();
