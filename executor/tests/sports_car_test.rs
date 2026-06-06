@@ -82,4 +82,41 @@ mod turn_left_tests{
 }
 
 
+mod turn_right_tests{
+    use super::*;
+    #[test]
+    fn should_return_y_mius_1_and_facing_s_given_command_is_r_and_facing_is_e(){
+        let original_pose = Pose::new(0,0,'E');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("R");
+        let expected_pose = Pose::new(0,-1,'S');
+        assert_eq!(expected_pose,executor.query());
+    }
 
+    #[test]
+    fn should_return_y_mius_1_and_facing_n_given_command_is_br_and_facing_is_e(){
+        let original_pose = Pose::new(0,0,'E');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("BR");
+        let expected_pose = Pose::new(0,-1,'N');
+        assert_eq!(expected_pose,executor.query());
+    }
+
+    #[test]
+    fn should_return_x_plus_1_y_mius_1_and_facing_s_given_command_is_fr_and_facing_is_e(){
+        let original_pose = Pose::new(0,0,'E');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("FR");
+        let expected_pose = Pose::new(1,-1,'S');
+        assert_eq!(expected_pose,executor.query());
+    }
+
+    #[test]
+    fn should_return_x_mius_1_y_mius_1_and_facing_n_given_command_is_fbr_and_facing_is_e(){
+        let original_pose = Pose::new(0,0,'E');
+        let mut executor = Executor::with_pose(original_pose);
+        executor.execute("FBR");
+        let expected_pose = Pose::new(-1,-1,'N');
+        assert_eq!(expected_pose,executor.query());
+    }
+}
