@@ -1,5 +1,5 @@
 use crate::action::Action;
-use super::assembler::Assembler;
+use crate::assembler::Assembler;
 #[derive(Default, Copy, Clone)]
 pub(crate) struct State {
     is_reverse: bool,
